@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        color: rgb(255, 255, 255);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+
+        background-image: url("https://i.stack.imgur.com/SvWWN.png");
+        background-repeat: none;
+        background-size: cover;
+        font-weight: 700;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+      }
+
+      .form label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form input {
+        background-color: rgb(194, 194, 194);
+        transition-duration: 500ms;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: rgb(255, 164, 44) 1px solid;
+      }
+
+      .form input:hover {
+        background-color: rgb(255, 164, 44);
+      }
+
+      .submit-button {
+        border-radius: 20px;
+        background-color: rgba(41, 0, 189, 0.404);
+        font-family: sans-serif;
+        border: 2px rgb(0, 105, 197) solid;
+        width: 200px;
+        height: 50px;
+        transition-duration: 500ms;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 700;
+      }
+
+      .submit-button:hover {
+        border-radius: 40px;
+
+        background-color: rgb(255, 164, 44);
+
+        color: white;
+      }
+
+      .form-container {
+        background-color: #8bc6ec;
+        background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+
+        margin: 0 auto;
+        width: 230px;
+        padding: 20px 0px 20px 0px;
+        border-top-left-radius: 40px;
+        border: navy 2px solid;
+        margin-bottom: 30px;
+        transform: translateX(-800px);
+        transition: 500ms;
+      }
+
+      .pizza {
+        position: relative;
+      }
+
+      .pizza::after {
+        content: "🍕";
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+
+        position: absolute;
+        top: 0;
+        right: -60px;
+        opacity: 0%;
+        transition-duration: 500ms;
+      }
+
+      .kebab {
+        position: relative;
+      }
+
+      .kebab::after {
+        content: "🥙";
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+
+        position: absolute;
+        top: 0;
+        right: -55px;
+        opacity: 0%;
+        transition-duration: 500ms;
+      }
+
+      .chinese {
+        position: relative;
+      }
+
+      .chinese::after {
+        content: "🍜";
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+
+        position: absolute;
+        top: 0;
+        right: -50px;
+        opacity: 0%;
+        transition-duration: 500ms;
+      }
+
+      .chinese:hover.chinese::after {
+        opacity: 100%;
+      }
+
+      .kebab:hover.kebab::after {
+        opacity: 100%;
+      }
+
+      .pizza:hover.pizza::after {
+        opacity: 100%;
+      }
+
+      .warning {
+        color: rgb(255, 255, 255);
+        transition-duration: 500ms;
+      }
+
+      .warning:hover {
+        color: rgb(255, 0, 0);
+        font-weight: 700;
+      }
+
+      .condiment-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .number-form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .phone-number {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .phone-number input {
+        margin-bottom: 10px;
+        border-radius: 10px;
+      }
+
+      .site-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-container:hover {
+        transform: translateX(-780px) scale(1.05);
+        border: white 2px solid;
+      }
+
+      .date-time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-container">
+      <div class="form-container">
+        <form name="signup_form" autocomplete="on" novalidate class="form">
+          <label>
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="john.doe@doemail.com"
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              placeholder="ilovekaro"
+              maxlength="8"
+            />
+          </label>
+
+          <button class="submit-button" type="submit">Submit form</button>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form name="radio_form" class="form">
+          <p>Choose what to eat:</p>
+          <label class="pizza">
+            Pizza
+            <input type="radio" name="food" value="pizza" checked />
+          </label>
+
+          <label class="kebab">
+            Kebab
+            <input type="radio" name="kebab" value="kebab" />
+          </label>
+
+          <label class="chinese">
+            Chinese
+            <input type="radio" name="chinese" value="chinese" />
+          </label>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form class="condiment-form">
+          <p>Select condiment:</p>
+          <label>
+            Mustard
+            <input type="checkbox" name="mustard" value="mustard" checked />
+          </label>
+          <label>
+            Ketchup
+            <input type="checkbox" name="ketchup" value="ketchup" checked />
+          </label>
+          <label class="warning">
+            Ghost
+            <input type="checkbox" name="ghost" value="ghost" />
+          </label>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form>
+          <label class="number-form">
+            <p>Enter number of participants:</p>
+            <input
+              type="number"
+              name="participants"
+              value="1"
+              min="1"
+              max="7"
+            />
+          </label>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form>
+          <label class="phone-number">
+            <p>Enter your phone number:</p>
+            <input type="tel" name="phone-number" />
+            <button class="submit-button" type="submit">Submit phone</button>
+          </label>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form>
+          <label class="hot-sauce">
+            <p>Enter the ostrość of the sosik:</p>
+            <input
+              type="range"
+              name="hot-sauce"
+              value="10"
+              min="0"
+              max="100"
+              step="5"
+            />
+          </label>
+          <p>Selected value: <span class="js-selected-value">40</span></p>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <form class="date-time">
+          <label>
+            Date <input type="date" min="2022-09-12" max="2030-09-12" />
+          </label>
+          <label> Time <input type="time" /> </label>
+          <label>
+            Date and time
+            <input
+              type="datetime-local"
+              min="1920-01-01T00:00"
+              max="2020-01-01T00:00"
+            />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
